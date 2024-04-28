@@ -7,6 +7,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QFileDialog
 from video_player import VideoPlayer
 
+
 class MainPanel(QWidget):
     """Clase principal que representa el panel de carga de video."""
 
@@ -61,9 +62,9 @@ class MainPanel(QWidget):
                                                    "Videos (*.mp4)",  # Filtrar por .mp4
                                                    options=options)
         if file_name:
-            self.video_player = VideoPlayer()  # Instanciar la ventana de reproductor de video
+            self.video_player = VideoPlayer(file_name)  # Pasar la ruta del archivo al constructor
             self.video_player.show()  # Mostrar la ventana de reproductor de video
-            self.hide()  # Opcionalmente, oculta el panel principal
+            self.hide()  # Ocultar el panel principal
 
 # Punto de entrada principal para la aplicación
 if __name__ == '__main__':
