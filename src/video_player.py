@@ -13,7 +13,9 @@ import numpy as np
 from menu_caras import MenuCaras
 
 class VideoPlayer(QMainWindow):
-    def __init__(self, video_path):
+    def __init__(self, video_path, main_panel):
+        super().__init__()
+        self.main_panel = main_panel
         QMainWindow.__init__(self)
         self.setWindowTitle("Reproductor de Video con Detección de Rostros")
         self.setGeometry(200, 200, 1000, 800)
@@ -46,9 +48,9 @@ class VideoPlayer(QMainWindow):
         self.btn_return.clicked.connect(self.return_to_main)
 
         self.central_widget.setLayout(layout)
-        self.face_cascade = cv2.CascadeClassifier('C:/Repo Proyecto 4/haarcascade_frontalface_default.xml')
-        self.eye_cascade = cv2.CascadeClassifier('C:/Repo Proyecto 4/haarcascade_eye.xml')
-        self.data_path = 'C:/Repo Proyecto 4/Data/Jose/'
+        self.face_cascade = cv2.CascadeClassifier('C:/repo final/ProyectoFaceDetectionVideo/haarcascade_frontalface_default.xml')
+        self.eye_cascade = cv2.CascadeClassifier('C:/repo final/ProyectoFaceDetectionVideo/haarcascade_eye.xml')
+        self.data_path = 'C:/repo final/ProyectoFaceDetectionVideo/Data/Jose'
 
     def play_video(self):
         self.player.play()
@@ -90,7 +92,8 @@ class VideoPlayer(QMainWindow):
         self.player.setPosition(self.player.position() + 10000)
 
     def return_to_main(self):
-        self.close()
+        self.close()  # Cierra la ventana actual de VideoPlayer
+        self.main_panel.show()  # Muestra la ventana principal
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

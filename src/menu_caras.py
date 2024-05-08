@@ -39,7 +39,7 @@ class MenuCaras(QWidget):
             self.save_photo(filename)
 
     def save_photo(self, filename):
-        destination_folder = 'C:/Repo Proyecto 4/Rostros Guardados'
+        destination_folder = 'C:/repo final/ProyectoFaceDetectionVideo/Rostros Guardados'
         if not os.path.exists(destination_folder):
             os.makedirs(destination_folder)
         source_path = os.path.join(self.folder_path, filename)

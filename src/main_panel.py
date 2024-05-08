@@ -32,7 +32,7 @@ class MainPanel(QWidget):
 
         # Configuramos el label para la imagen
         label_with_monkey = QLabel(self)
-        pixmap = QPixmap('assets/monito.png')
+        pixmap = QPixmap('C:/repo final/ProyectoFaceDetectionVideo/assets/monito.png')
         label_with_monkey.setPixmap(pixmap.scaledToWidth(250))
         label_with_monkey.setAlignment(Qt.AlignCenter)
         grid_layout.addWidget(label_with_monkey, 1, 0, 1, 3)  # Debajo del label de descripción
@@ -62,7 +62,7 @@ class MainPanel(QWidget):
                                                    "Videos (*.mp4)",  # Filtrar por .mp4
                                                    options=options)
         if file_name:
-            self.video_player = VideoPlayer(file_name)  # Pasar la ruta del archivo al constructor
+            self.video_player = VideoPlayer(file_name,self)  # Pasar la ruta del archivo al constructor
             self.video_player.show()  # Mostrar la ventana de reproductor de video
             self.hide()  # Ocultar el panel principal
 
